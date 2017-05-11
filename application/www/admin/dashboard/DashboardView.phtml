@@ -1,0 +1,110 @@
+<h2>Interface d'administration</h2>
+<div id="tabs">
+    <ul>
+        <li><a href="#users">liste des utilisateurs</a></li>
+        <li><a href="#booking">liste des réservations</a></li>
+        <li><a href="#meals">liste des plats</a></li>
+    </ul>
+
+    <section id="users">
+        <table class="generic-table">
+            <thead>
+                <th>id</th>
+                <th>Nom Complet</th>
+                <th>adresse mail</th>
+                <th>téléphone</th>
+                <th>Date d'inscription</th>
+                <th></th>
+            </thead>
+            <tbody>
+            <?php if(count($users)>0): ?>
+                <?php foreach($users as $user): ?>
+                    <tr>
+                        <td><?= $user['Id'] ?></td>
+                        <td><?= $user['FirstName'] ?> <?= $user['LastName'] ?></td>
+                        <td><?= $user['Email'] ?></td>
+                        <td><?= $user['Phone'] ?></td>
+                        <td><?= $user['CreationTimestamp'] ?></td>
+                        <td>
+                            <a href="#"><i class="fa fa-trash"></i></a>
+                            <a href="#"><i class="fa fa-cogs"></i></a>
+                        </td>
+                    </tr>
+                <?php endforeach ?>
+            <?php else: ?>
+                <tr><td colspan="6">Aucun utilisateur</td></tr>
+            <?php endif ?>
+            </tbody>
+        </table>
+    </section>
+
+    <section id="booking">
+        <table class="generic-table">
+            <thead>
+                <th>id</th>
+                <th>Nom Complet</th>
+                <th>Nombre de personnes</th>
+                <th>date et heure</th>
+                <th></th>
+            </thead>
+            <tbody>
+            <?php if(count($booking)>0): ?>
+                <?php foreach($booking as $book): ?>
+                    <tr>
+                        <td><?= $book['Id'] ?></td>
+                        <td><?= $user['FirstName'] ?> <?= $user['LastName'] ?></td>
+                        <td><?= $book['NumberOfSeats'] ?></td>
+                        <td><?= $book['BookingTime'] ?></td>
+                        <td>
+                            <a href="#"><i class="fa fa-trash"></i></a>
+                            <a href="#"><i class="fa fa-cogs"></i></a>
+                        </td>
+                    </tr>
+                <?php endforeach ?>
+            <?php else: ?>
+                <tr><td colspan="6">Aucune reservations</td></tr>
+            <?php endif ?>
+            </tbody>
+        </table>
+    </section>
+    <section id="meals">
+        <table class="generic-table">
+            <thead>
+                <th>id</th>
+                <th></th>
+                <th>menu</th>
+                <th>quantité</th>
+                <th>prix</th>
+                <th></th>
+            </thead>
+            <tbody>
+            <?php if(count($meals)>0): ?>
+                <?php foreach($meals as $meal): ?>
+                    <tr>
+                        <td><?= $meal['Id'] ?></td>
+                        <td><img class="small" src="<?= $wwwUrl ?>/images/meals/<?= $meal['Photo'] ?>"></td>
+                        <td><?= $meal['Name'] ?></td>
+                        <td><?= $meal['QuantityInStock'] ?></td>
+                        <td><?= $meal['SalePrice'] ?></td>
+                        <td>
+                            <a href="#"><i class="fa fa-trash"></i></a>
+                            <a href="#"><i class="fa fa-cogs"></i></a>
+                        </td>
+                    </tr>
+                <?php endforeach ?>
+            <?php else: ?>
+                <tr><td colspan="6">Aucun Produit</td></tr>
+            <?php endif ?>
+            </tbody>
+        </table>
+    </section>
+</div>
+
+<script>
+    $(function(){
+        $('#tabs').tabs({
+            hide: { effect: "fadeOut", duration: 200 },
+            show: { effect: "fadeIn", duration: 200 }
+        });
+    })
+</script>

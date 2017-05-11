@@ -1,0 +1,67 @@
+<h2><i class="fa address-book-o">Reservez une table</i></h2>
+
+<form class="generic-form" method="POST">
+    <fieldset>
+        <legend><i class="fa fa-book"></i> Choississez votre réservation</legend>
+        <ul>
+            <li>
+                <label for="bookingDay">Date de la réservation :</label>
+                <select name="bookingDay">
+                    <?php for($day=1 ; $day <= 31 ; $day++): ?>
+                        <option value="<?=$day?>"><?=$day?></option>
+                    <?php endfor ?>
+                </select>
+                <span> / </span>
+                <select name="bookingMonth">
+                    <option value="1">Janvier</option>
+                    <option value="2">Février</option>
+                    <option value="3">Mars</option>
+                    <option value="4">Avril</option>
+                    <option value="5">Mai</option>
+                    <option value="6">Juin</option>
+                    <option value="7">Juillet</option>
+                    <option value="8">Août</option>
+                    <option value="9">Septembre</option>
+                    <option value="10">Octobre</option>
+                    <option value="11">Novembre</option>
+                    <option value="12">Décembre</option>
+                </select>
+                <span> / </span>
+                <select name="bookingYear">
+                    <?php $cur_year = date('Y') ?>
+                    <?php for($year=$cur_year ; $year <= $cur_year+1 ; $year++): ?>
+                        <option value="<?=$year?>"><?=$year?></option>
+                    <?php endfor ?>
+                </select>
+            </li>
+            <li>
+                <label for="bookingHour">Heure de votre réservation : </label>
+                <select name="bookingHour">
+                    <?php for($hour=12 ; $hour <= 22 ; $hour++): ?>
+                        <option value="<?=$hour?>"><?=$hour?></option>
+                    <?php endfor ?>
+                </select>
+                <span> : </span>
+                <select name="bookingMinute">
+                    <?php for($minute=0 ; $minute < 60 ; $minute+=15): ?>
+                        <option value="<?=$minute?>"><?=$minute?></option>
+                    <?php endfor ?>
+                </select>
+            </li>
+            <li>
+                <label for="seat_amount">Nombre de couverts :</label>
+                <select name="seat_amount">
+                    <?php for($seat_amount=0 ; $seat_amount < 30 ; $seat_amount++): ?>
+                        <option value="<?=$seat_amount?>"><?=$seat_amount?></option>
+                    <?php endfor ?>
+                </select>
+            </li>
+        </ul>
+    </fieldset>
+    <ul>
+        <li>
+            <input class="button button-primary" type="submit" value="Validez votre réservation">
+            <a class="button button-cancel small" href="<?= $requestUrl ?>">Annuler</a>
+        </li>
+    </ul>
+</form>

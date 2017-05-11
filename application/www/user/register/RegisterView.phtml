@@ -1,0 +1,94 @@
+<h2><i class="fa fa-user">Création d'un compte client</i></h2>
+
+<form class="generic-form" method="POST">
+    <aside class="error-message hidden">
+        <h3><i class="fa fa-warning"></i> Il y a <em class="total-error-count">1</em> erreur(s) dans le formulaire !</h3>
+        <p><?= $errorMessage ?></p>
+    </aside>
+
+    <fieldset>
+        <legend><i class="fa fa-book"></i> Identité et coordonées</legend>
+        <ul>
+            <li>
+                <label for="lastName">Nom :</label>
+                <input type="text" id="lastName" name="lastName" value="<?=$lastName?>">
+            </li>
+            <li>
+                <label for="firstName">Prénom :</label>
+                <input type="text" id="firstName" name="firstName" value="<?=$firstName?>">
+            </li>
+            <li>
+                <label for="birthDay">Date de naissance :</label>
+                <select name="birthDay">
+                    <?php for($day=1 ; $day <= 31 ; $day++): ?>
+                        <option value="<?=$day?>"><?=$day?></option>
+                    <?php endfor ?>
+                </select>
+                <span> / </span>
+                <select name="birthMonth">
+                    <option value="1">Janvier</option>
+                    <option value="2">Février</option>
+                    <option value="3">Mars</option>
+                    <option value="4">Avril</option>
+                    <option value="5">Mai</option>
+                    <option value="6">Juin</option>
+                    <option value="7">Juillet</option>
+                    <option value="8">Août</option>
+                    <option value="9">Septembre</option>
+                    <option value="10">Octobre</option>
+                    <option value="11">Novembre</option>
+                    <option value="12">Décembre</option>
+                </select>
+                <span> / </span>
+                <select name="birthYear">
+                    <?php $cur_year = date('Y') ?>
+                    <?php for($year=$cur_year-100 ; $year <= $cur_year-18 ; $year++): ?>
+                        <option value="<?=$year?>"><?=$year?></option>
+                    <?php endfor ?>
+                </select>
+            </li>
+            <li>
+                <label for="address">adresse :</label>
+                <textarea id="address" name="address" rows="3"><?=$address?></textarea>
+            </li>
+            <li>
+                <label for="city">Ville :</label>
+                <input type="text" id="city" name="city" value="<?=$city?>">
+            </li>
+            <li>
+                <label for="zipCode">Code postal :</label>
+                <input type="text" id="zipCode" name="zipCode" value="<?=$zipCode?>">
+            </li>
+            <li>
+                <label for="country">Pays :</label>
+                <input type="text" id="country" name="country" value="<?=$country?>">
+            </li>
+            <li>
+                <label for="phone">Téléphone :</label>
+                <input type="text" id="phone" name="phone" value="<?=$phone?>">
+            </li>
+        </ul>
+    </fieldset>
+
+
+    <fieldset>
+        <legend><i class="fa fa-lock"></i> Informations d'authentification</legend>
+        <ul>
+            <li>
+                <label for="email">Mail :</label>
+                <input type="text" id="email" name="email" value="<?=$email?>">
+            </li>
+            <li>
+                <label for="password">Mot de passe :</label>
+                <input type="password" id="password" name="password">
+            </li>
+        </ul>
+    </fieldset>
+    <ul>
+        <li>
+            <input class="button button-primary" type="submit" value="Créer le compte">
+            <a class="button button-cancel small" href="<?= $requestUrl ?>">Annuler</a>
+        </li>
+    </ul>
+
+</form>
