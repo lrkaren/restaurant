@@ -1,0 +1,8 @@
+<h2>
+    Faites vos achats ici
+</h2>
+<ul>
+    <?php foreach($menus as $menu): ?>
+        <li><?= $menu['Name'] ?> - <?= number_format($menu['SalePrice'],2) ?> €</li>
+    <?php endforeach; ?>
+</ul>
