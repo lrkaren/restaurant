@@ -10,4 +10,4 @@
 	
 **Et sa méthode**
 
-	httpGetMethod()fff
+	httpGetMethod()
