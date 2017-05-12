@@ -31,7 +31,7 @@ CREATE TABLE `booking` (
   PRIMARY KEY (`Id`),
   KEY `User_Id` (`User_Id`),
   CONSTRAINT `Booking_ibfk_1` FOREIGN KEY (`User_Id`) REFERENCES `user` (`Id`) ON DELETE CASCADE ON UPDATE CASCADE
-) ENGINE=InnoDB AUTO_INCREMENT=15 DEFAULT CHARSET=latin1;
+) ENGINE=InnoDB AUTO_INCREMENT=16 DEFAULT CHARSET=latin1;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -40,7 +40,7 @@ CREATE TABLE `booking` (
 
 LOCK TABLES `booking` WRITE;
 /*!40000 ALTER TABLE `booking` DISABLE KEYS */;
-INSERT INTO `booking` VALUES (14,12,'2017-01-01 12:00:00',0,'2017-05-10 11:00:44');
+INSERT INTO `booking` VALUES (15,18,'2017-01-01 12:00:00',0,'2017-05-12 10:39:12');
 /*!40000 ALTER TABLE `booking` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -145,18 +145,18 @@ CREATE TABLE `user` (
   `LastName` varchar(40) NOT NULL,
   `Email` varchar(50) NOT NULL,
   `Password` varchar(64) NOT NULL,
-  `BirthDate` date NOT NULL,
-  `Address` varchar(250) NOT NULL,
-  `City` varchar(40) NOT NULL,
-  `ZipCode` char(5) NOT NULL,
-  `Phone` char(10) NOT NULL,
+  `BirthDate` date DEFAULT NULL,
+  `Address` varchar(250) DEFAULT NULL,
+  `City` varchar(40) DEFAULT NULL,
+  `ZipCode` char(5) DEFAULT NULL,
+  `Phone` char(20) NOT NULL,
   `CreationTimestamp` datetime NOT NULL,
   `LastLoginTimestamp` datetime DEFAULT NULL,
   `Country` varchar(15) DEFAULT NULL,
   `Admin` tinyint(1) DEFAULT '0',
   PRIMARY KEY (`Id`),
   UNIQUE KEY `Email` (`Email`)
-) ENGINE=InnoDB AUTO_INCREMENT=17 DEFAULT CHARSET=latin1;
+) ENGINE=InnoDB AUTO_INCREMENT=21 DEFAULT CHARSET=latin1;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -165,7 +165,12 @@ CREATE TABLE `user` (
 
 LOCK TABLES `user` WRITE;
 /*!40000 ALTER TABLE `user` DISABLE KEYS */;
-INSERT INTO `user` VALUES (2,'Alan','DEDOBBELER','contact@ad-creatif.com','$2y$11$de1ea993e285775c1bcdduMAGqjxB2Qz1091ijvKe4mxmD5w/d9yC','2016-04-06','60 rue de Garches','Nanterre','92000','0695546125','2016-04-06 15:26:52',NULL,NULL,0),(3,'prénom','NOm','lmail','motdepasse','1917-01-01','adresse','ville','codeP','telephone','0000-00-00 00:00:00',NULL,'pays',0),(4,'Prénom','Nom','adresse mail','mot de passe','1926-07-10','mon adresse <br> mon adresse','ma ville','01020','+33Mon tél','0000-00-00 00:00:00',NULL,'Mon pays',0),(7,'aaaaa','aaaaa','aaaaa','bbbbb','1917-01-01','','','','','2017-05-05 12:08:22',NULL,'',0),(12,'test','test','test','test','1917-01-01','test','','','','2017-05-05 12:47:00',NULL,'',0),(16,'admin','admin','admin','admin','2017-05-10','admin','Quimper','31050','0102030400','2017-05-10 16:52:49','2017-05-10 16:52:50','Suisse',1);
+INSERT INTO `user` VALUES
+  (2,'Alan','DEDOBBELER','contact@ad-creatif.com','$2y$11$de1ea993e285775c1bcdduMAGqjxB2Qz1091ijvKe4mxmD5w/d9yC','2016-04-06','60 rue de Garches','Nanterre','92000','0695546125','2016-04-06 15:26:52',NULL,NULL,0),
+  (17,'poil','poil','poil','$2y$11$38804bef9f95bdabffabfODopoBbNKShc7uvdXTl6qasvSvrrsuSO','1917-01-01','poil','poil','poil','poil','2017-05-12 10:29:35',NULL,'poil',0),
+  (18,'admin','admin','admin','$2y$11$33f4b987dd04d798fd60bu4W5Y02MrzmEiTQlFp1VXNtyoz.6YytS','1917-01-01','admin','admin','admin','admin','2017-05-12 10:30:57',NULL,'admin',1),
+  (19,'test','test','test<script>','$2y$11$4ce8c0a850e7f0184f31aujNJpGs.9FFigg54qIQx2xVSxts9Kdpi','1917-01-01','test','test','test','test','2017-05-12 10:31:19',NULL,'test',0),
+  (20,'','','','$2y$11$b05bf808ef8fe9a646a24ukOLO1Y0pWyHc4XzLqKcE5YcllYfI1DW','1917-01-01','','','','','2017-05-12 10:50:37',NULL,'',0);
 /*!40000 ALTER TABLE `user` ENABLE KEYS */;
 UNLOCK TABLES;
 /*!40103 SET TIME_ZONE=@OLD_TIME_ZONE */;
@@ -178,4 +183,4 @@ UNLOCK TABLES;
 /*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
 /*!40111 SET SQL_NOTES=@OLD_SQL_NOTES */;
 
--- Dump completed on 2017-05-11 11:40:50
+-- Dump completed on 2017-05-12 12:12:21

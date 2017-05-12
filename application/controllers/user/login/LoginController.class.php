@@ -12,20 +12,19 @@ class LoginController {
         try{
             // on récupère les données utilisateurs grace au formulaire
             $userModel = new UserModel();
-            $user = $userModel->findByEmail($formFields['email']);
+            $user = $userModel->loginByEmail($formFields['email'], $formFields['password']);
 
-            // on vérifie qu'un résultat à bien été trouvé, et que les mots de passe coincident
-            if(!empty($user) && $formFields['password'] == $user['Password']) {
+            // si c'est le cas on connecte l'utilisateur en créant la session
+            $session = new UserSession();
+            $session->create($user['Id'], $user['FirstName'], $user['LastName'], $user['Email'], $user['Admin']);
 
-                // si c'est le cas on connecte l'utilisateur en créant la session
-                $session = new UserSession();
-                $session->create($user['Id'], $user['FirstName'], $user['LastName'], $user['Email'], $user['Admin']);
+            // ajout d'un petit message pour le fun
+            $flashBag = new FlashBag();
+            $flashBag->add('Bonjour '. $session->getFullName() .' content de vous revoir !');
 
-                // enfin on le redirige vers l'accueil
-                $http->redirectTo();
-            }  else {
-                throw new DomainException('mauvais login/mot de passe');
-            }
+            // enfin on le redirige vers l'accueil
+            $http->redirectTo();
+
         } catch (DomainException $exception){
 
             // on récupère les information du formulaire et on associe à la classe Form
