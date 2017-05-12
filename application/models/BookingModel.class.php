@@ -1,12 +1,14 @@
 <?php
 
 class BookingModel {
-    function create($user_id, $booking_date, $seats_amount){
+    function create($user_id, $booking_date, $seats_amount, $fullName){
         $sql = "INSERT INTO booking (User_Id, BookingTime, NumberOfSeats, CreationTimestamp) 
                 VALUES (?,?,?,NOW())";
 
         $database = new Database();
         $database->executeSql($sql, [$user_id, $booking_date, $seats_amount]);
+
+        //mail('Restaurant <blabla@poil.com>','une nouvelle réservation', "$fullName à reservé pour $seats_amount personne à $booking_date");
     }
 
     function delete(){

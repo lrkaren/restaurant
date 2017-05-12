@@ -18,7 +18,8 @@ class BookingController{
         $booking->create(
             $session->getUserId(),
             $bookingTime,
-            $formFields['seat_amount']
+            $formFields['seat_amount'],
+            $session->getFullName()
         );
 
         $flashBag = new FlashBag();
