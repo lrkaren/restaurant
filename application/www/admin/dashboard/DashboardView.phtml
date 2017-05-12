@@ -21,9 +21,9 @@
                 <?php foreach($users as $user): ?>
                     <tr>
                         <td><?= $user['Id'] ?></td>
-                        <td><?= $user['FirstName'] ?> <?= $user['LastName'] ?></td>
-                        <td><?= $user['Email'] ?></td>
-                        <td><?= $user['Phone'] ?></td>
+                        <td><?= strip_tags($user['FirstName']) ?> <?= strip_tags($user['LastName']) ?></td>
+                        <td><?= strip_tags($user['Email']) ?></td>
+                        <td><?= strip_tags($user['Phone']) ?></td>
                         <td><?= $user['CreationTimestamp'] ?></td>
                         <td>
                             <a href="#"><i class="fa fa-trash"></i></a>
@@ -52,7 +52,7 @@
                 <?php foreach($booking as $book): ?>
                     <tr>
                         <td><?= $book['Id'] ?></td>
-                        <td><?= $user['FirstName'] ?> <?= $user['LastName'] ?></td>
+                        <td><?= strip_tags($user['FirstName']) ?> <?= strip_tags($user['LastName']) ?></td>
                         <td><?= $book['NumberOfSeats'] ?></td>
                         <td><?= $book['BookingTime'] ?></td>
                         <td>
