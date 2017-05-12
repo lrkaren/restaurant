@@ -10,21 +10,20 @@
         <legend><i class="fa fa-book"></i> Identité et coordonées</legend>
         <ul>
             <li>
-                <label for="lastName">Nom :</label>
-                <input type="text" id="lastName" name="lastName" value="<?=$lastName?>">
+                <label for="lastName">Nom </label>
+                <input type="text" id="lastName" name="lastName" value="<?=$lastName?>" data-name="Nom" data-required><span>*</span>
             </li>
             <li>
-                <label for="firstName">Prénom :</label>
-                <input type="text" id="firstName" name="firstName" value="<?=$firstName?>">
+                <label for="firstName">Prénom </label>
+                <input type="text" id="firstName" name="firstName" value="<?=$firstName?>" data-name="Prénom" data-required><span>*</span>
             </li>
             <li>
-                <label for="birthDay">Date de naissance :</label>
+                <label for="birthDay">Date de naissance </label>
                 <select name="birthDay">
                     <?php for($day=1 ; $day <= 31 ; $day++): ?>
                         <option value="<?=$day?>"><?=$day?></option>
                     <?php endfor ?>
                 </select>
-                <span> / </span>
                 <select name="birthMonth">
                     <option value="1">Janvier</option>
                     <option value="2">Février</option>
@@ -39,7 +38,6 @@
                     <option value="11">Novembre</option>
                     <option value="12">Décembre</option>
                 </select>
-                <span> / </span>
                 <select name="birthYear">
                     <?php $cur_year = date('Y') ?>
                     <?php for($year=$cur_year-100 ; $year <= $cur_year-18 ; $year++): ?>
@@ -48,39 +46,38 @@
                 </select>
             </li>
             <li>
-                <label for="address">adresse :</label>
+                <label for="address">adresse </label>
                 <textarea id="address" name="address" rows="3"><?=$address?></textarea>
             </li>
             <li>
-                <label for="city">Ville :</label>
+                <label for="city">Ville </label>
                 <input type="text" id="city" name="city" value="<?=$city?>">
             </li>
             <li>
-                <label for="zipCode">Code postal :</label>
-                <input type="text" id="zipCode" name="zipCode" value="<?=$zipCode?>">
+                <label for="zipCode">Code postal </label>
+                <input type="text" id="zipCode" name="zipCode" value="<?=$zipCode?>" data-minimumLength="5"  data-name="Code postal" data-type="number">
             </li>
             <li>
-                <label for="country">Pays :</label>
+                <label for="country">Pays </label>
                 <input type="text" id="country" name="country" value="<?=$country?>">
             </li>
             <li>
-                <label for="phone">Téléphone :</label>
-                <input type="text" id="phone" name="phone" value="<?=$phone?>">
+                <label for="phone">Téléphone </label>
+                <input type="text" id="phone" name="phone" value="<?=$phone?>" data-name="Téléphone" data-minimumLength="10" data-type="phone" data-required><span>*</span>
             </li>
         </ul>
     </fieldset>
-
 
     <fieldset>
         <legend><i class="fa fa-lock"></i> Informations d'authentification</legend>
         <ul>
             <li>
-                <label for="email">Mail :</label>
-                <input type="text" id="email" name="email" value="<?=$email?>">
+                <label for="email">Mail </label>
+                <input type="text" id="email" name="email" value="<?=$email?>" data-name="E-mail" data-type="email"  data-required><span>*</span>
             </li>
             <li>
-                <label for="password">Mot de passe :</label>
-                <input type="password" id="password" name="password">
+                <label for="password">Mot de passe </label>
+                <input type="password" id="password" name="password" data-name="Mot de passe" data-type="password" data-minimumLength="6" data-required><span>*</span>
             </li>
         </ul>
     </fieldset>

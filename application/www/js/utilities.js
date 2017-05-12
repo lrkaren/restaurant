@@ -53,15 +53,34 @@ function getWwwUrl()
 }
 
 // La fonction renvoie vrai si l'argument est un nombre entier
-function isInteger(value)
-{
-    // TODO: implémenter la fonction.
+function isInteger(value) {
+	/*
+	if(isNumber(value)){
+		if(value % 1 == 0){
+			return true;
+		}
+	}
+	return false;
+	*/
+
+	// en mode badass ça donne :
+	return isNumber(value) && value % 1 == 0;
 }
 
 // La fonction renvoie l'inverse de isNaN() de JavaScript
-function isNumber(value)
-{
-    // TODO: implémenter la fonction
+function isNumber(value){
+	// est ce que value est un nombre ?
+
+	/*
+	if(!isNaN(value) == true){
+		return true;
+	} else {
+		return false
+	}
+	*/
+
+	// en sexy ça donne :
+    return !isNaN(value);
 }
 
 function loadDataFromDomStorage(name)
