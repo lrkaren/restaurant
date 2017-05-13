@@ -1,5 +1,5 @@
 <?php
-
+// version Karen du 13 mai 2017
 // Save the project root directory as a global constant.
 define('ROOT_PATH', __DIR__);
 
